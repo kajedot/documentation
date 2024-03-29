@@ -4,6 +4,12 @@
 Changelog
 =========
 
+Odoo Online version 17.3
+========================
+
+- We can now group by date parts (`month_number`, `quarter_number` and `week_number`) in `read_group`, `_read_group` and domains with `#159528 <https://github.com/odoo/odoo/pull/159528>`_.
+
+
 Odoo Online version 17.2
 ========================
 
