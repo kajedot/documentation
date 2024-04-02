@@ -192,3 +192,4 @@ Toggle the :guilabel:`Activate` switch to deactivate the redirection.
 
    pages/menus
    pages/seo
+   pages/responsiveness
