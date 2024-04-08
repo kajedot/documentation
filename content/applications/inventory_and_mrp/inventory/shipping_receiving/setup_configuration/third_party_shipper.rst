@@ -1,161 +1,208 @@
-=======================================
-How to integrate a third party shipper?
-=======================================
+==============================
+Integrate third-party carriers
+==============================
 
 .. _inventory/shipping/third_party:
 
-Overview
-========
+Link third-party shipping carriers to Odoo databases to verify carriers delivery to specific
+addresses, :doc:`automatically calculate shipping costs <delivery_method>`, and :doc:`generate
+shipping labels <../advanced_operations_shipping/labels>`.
 
-Odoo can handle various delivery methods, including third party
-shippers. Odoo can be linked with the transportation company tracking
-system. It will allow you to manage the transport company, the real
-prices and the destination.
+.. seealso::
+   - :doc:`dhl_credentials`
+   - :doc:`sendcloud_shipping`
+   - :doc:`ups_credentials`
+
+The following is a list of available shipping connectors in Odoo:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+
+   * - Carrier
+     - Region availability
+   * - FedEx
+     - All
+   * - :doc:`DHL <dhl_credentials>`
+     - All
+   * - :doc:`UPS <ups_credentials>`
+     - All
+   * - US Postal Service
+     - Unites States of America
+   * - :doc:`Sendcloud <sendcloud_shipping>`
+     - EU
+   * - Bpost
+     - Belgium
+   * - Easypost
+     - North America
+   * - Shiprocket
+     - India
+   * - Starshipit
+     - Australia
 
 Configuration
 =============
 
-Install the shipper company connector module
---------------------------------------------
+Install shipping connector
+--------------------------
 
-In the inventory module, click on :menuselection:`Configuration --> Settings`.
-Under **Shipping Connectors**, flag the transportation companies you want to
-integrate :
+To begin, go to :menuselection:`Inventory app --> Configuration --> Settings`.
 
-.. image:: third_party_shipper/third_party_shipper06.png
+Under the :guilabel:`Shipping Connectors` heading, select the third-party shipping carrier's
+checkbox to install it.
+
+.. image:: third_party_shipper/shipping-connectors.png
    :align: center
+   :alt: Options of available shipping connectors in Odoo.
 
-Then click on **Apply**.
+Then, click :guilabel:`Save`.
 
 .. note::
-    If you want to integrate delivery methods in your e-commerce,
-    you'll have to install the **eCommerce Delivery** module.
+   Delivery methods can also be integrated with operations in the *eCommerce* app. (installation
+   details found :ref:` here <general/install>`).
 
-Configure the delivery method
------------------------------
+.. _inventory/shipping_receiving/configure-delivery-method:
 
-To configure your delivery methods, go to the **Inventory** module, click on
-:menuselection:`Configuration --> Delivery Methods`.
+Delivery method
+---------------
 
-The delivery methods for the chosen shippers have been automatically
-created. Most of the time, there will be **2** delivery methods for the same
-provider: one for **international** shipping and the other for **domestic**
-shipping.
+Next, add the carrier details by going to :menuselection:`Inventory app --> Configuration -->
+Shipping Methods`.
 
-You can create other methods with the same provider with other
-configuration, for example the **Packaging Type**.
+.. note::
+   The list often includes **two** delivery methods from the same :guilabel:`Provider`: one for
+   international and one for domestic shipping.
 
-You can change the **Name** of the delivery method. This is the name that
-will appear on your ecommerce.
-
-Flag **Shipping enabled** when you are ready to use it.
-
-.. image:: third_party_shipper/third_party_shipper02.png
-   :align: center
-
-In the pricing tab, the name of the provider chosen under the **Price computation**
-means that the pricing will be computed by the shipper system.
-
-The configuration of the shipper is split into two columns:
-
--  The first one is linked to **your account** (developer key, password,...).
-   For more information, please refer to the provider website.
-
--  The second column varies according to the **provider**. You can choose
-   the packaging type, the service type, the weight unit...
-
--  Uncheck **Test Mode** when you are done with the testings.
-
-Finally you can limit the delivery method to a few destinations. You can
-limit it to some countries, states or even zip codes. This feature
-limits the list of countries on your e-commerce. It is useful for the
-domestic providers. For example, USPS US only delivers from the United
-States to the United States.
-
-.. image:: third_party_shipper/third_party_shipper07.png
-   :align: center
-
-Company configuration
----------------------
-
-In order to compute the right price, the provider needs your company
-information. Be sure your address and phone number are correctly
-encoded.
-
-.. image:: third_party_shipper/third_party_shipper03.png
-   :align: center
-
-To check your information, go to the **Settings** application and click on
-**General Settings**. Click on the first link **Configure your company data**.
-
-Product configuration
----------------------
-
-The shipper companies need the weight of your product, otherwise the
-price computation cannot be done.
-
-Go the menu :menuselection:`Sales --> Sales --> Products`. Open the products you
-want to ship and set a weight on it.
-
-.. image:: third_party_shipper/third_party_shipper09.png
-   :align: center
-
-.. tip::
-    The weight on the product form is expressed in kilograms.
-    Don't forget to make the conversion if you are used to the imperial
-    measurement system.
-
-Sale process
-============
-
-Sale order
-----------
-
-.. image:: third_party_shipper/third_party_shipper05.png
-   :align: center
-
-You can now choose the carrier on your sale order. Click on **Delivery
-method** to choose the right one.
-
-The price is computed when you save the sale order or when you click on
-**Set price**.
-
-If you want to invoice the price of the delivery charge on the sale
-order, click on **Set price**, it will add a line with the name of the
-delivery method as a product. It may vary from the real price.
-
-Otherwise, the real price (computed when the delivery is validated) will
-automatically be added to the invoice. For more information, please read
-the document :doc:`../advanced_operations_shipping/invoicing`.
-
-Delivery
---------
-
-The delivery created from the sale order will take the shipping
-information from it. You can change the carrier if you want to.
-
-If you create a delivery transfer from the inventory module, you can add
-the third party shipper in the additional info tab.
-
-.. image:: third_party_shipper/third_party_shipper01.png
-   :align: center
-
-The weight is computed based on the products weights. The shipping cost
-will be computed once the transfer is validated.
-
-Click on **Validate** to receive the tracking number. The **Carrier Tracking
-ref** field will automatically be filled. Click on the **Tracking** button
-to check your delivery on the provider website.
-
-.. image:: third_party_shipper/third_party_shipper08.png
-   :align: center
-
-The label to stick on your package is available in the history
-underneath :
-
-.. image:: third_party_shipper/third_party_shipper04.png
-   :align: center
+   Additional delivery methods can be created for specific purposes, such as :doc:`packaging
+   <../../product_management/product_tracking/packaging>`.
 
 .. seealso::
-    * :doc:`../advanced_operations_shipping/invoicing`
-    * :doc:`../advanced_operations_shipping/labels`
+   :doc:`Configure delivery methods <../setup_configuration/delivery_method>`
+
+The delivery method must be published before it can be used. To do so, choose the desired delivery
+method.
+
+.. image:: third_party_shipper/publish-delivery-method.png
+   :align: center
+   :alt: Display list of delivery methods and the "is Published" column.
+
+On the shipping method page, configure the :doc:`delivery method details
+<../setup_configuration/delivery_method>`, such as :guilabel:`Integration Level`,
+:guilabel:`Delivery Product`, and :guilabel:`Invoicing Policy`.
+
+Then, in the :guilabel:`Configuration` tab, input the API credentials and password with the shipping
+carrier. Then, go to the :guilabel:`Destination Availability` tab and configure the service coverage
+of the shipping carrier.
+
+Publish
+~~~~~~~
+
+With the delivery method details configured, click the :guilabel:`Test Environment` smart button to
+activate it.
+
+.. warning::
+   Set the delivery method to :guilabel:`Production` charges customers for shipping. Verify all
+   configurations before launching the delivery method to :guilabel:`Production`.
+
+.. image:: third_party_shipper/production.png
+   :align: center
+   :alt: Show the "Test Environment" smart button.
+
+.. note::
+   For databases with the *Website* app installed, select the :guilabel:`Unpublished` smart button
+   to enable the delivery method on the website.
+
+   .. image:: third_party_shipper/published.png
+      :align: center
+      :alt: Display "Unpublished" smart button at the top of the delivery method page.
+
+.. _inventory/shipping_receiving/configure-source-address:
+
+Source address
+--------------
+
+Configure the source address for package shipments by navigating to :menuselection:`Inventory app
+--> Configuration --> Warehouses` and selecting the desired warehouse.
+
+On the warehouse configuration page, hover over the :guilabel:`Address` field and select the
+:guilabel:`➡️ (right arrow)` icon. Doing so opens the warehouse contact page.
+
+.. image:: third_party_shipper/internal-link.png
+   :align: center
+   :alt: Show the internal link icon that appears when hovering over "Address".
+
+Ensure the warehouse's :guilabel:`Address` and :guilabel:`Phone` number are entered accurately, as
+they are used to calculate cost of shipping.
+
+.. image:: third_party_shipper/company.png
+   :align: center
+   :alt: Show company address and phone number.
+
+.. _inventory/shipping_receiving/configure-weight:
+
+Product weight
+--------------
+
+To calculate the price of shipping, specify the weight of products by going to
+:menuselection:`Inventory app --> Products --> Products`, and selecting the desired product.
+
+Then, switch to the :guilabel:`Inventory` tab, define the :guilabel:`Weight` of the product, in
+kilograms.
+
+.. image:: third_party_shipper/product-weight.png
+   :align: center
+   :alt: Display the "Weight" field in the Inventory tab of the product form.
+
+.. tip::
+   Make sure to convert weights into kilograms for the calculations to work properly.
+
+Apply third-party shipping carrier on sales order
+=================================================
+
+After configuring the third-party carrier's :ref:`delivery method
+<inventory/shipping_receiving/configure-delivery-method>` in Odoo, navigate to a quotation by going
+to :menuselection:`Sales app --> Orders --> Quotations`.
+
+Add shipping
+------------
+
+Add the cost of shipping through a third-party carrier to a quotation by clicking the :guilabel:`Add
+Shipping` button in the bottom-right corner.
+
+.. image:: ../advanced_operations_shipping/invoicing/add-shipping.png
+   :align: center
+   :alt: Show the "Add shipping" button at the bottom of a quotation.
+
+In the pop-up window, select the intended carrier from the :guilabel:`Shipping Method` drop-down
+menu. The :guilabel:`Cost` field is automatically filled based on the :ref:`product weight
+<inventory/shipping_receiving/configure-weight>` and distance between the warehouse's :ref:`source
+address <inventory/shipping_receiving/configure-source-address>` and the customer address.
+
+Click :guilabel:`Get Rate` to add the cost to the quotation, which is listed as the delivery product
+configured earlier.
+
+.. image:: ../advanced_operations_shipping/invoicing/add-a-shipping-method.png
+   :align: center
+   :alt: Show the "Get rate" button in the "Add a shipping method" pop-up.
+
+.. seealso::
+   :doc:`Charge customers for shipping after product delivery
+   <../advanced_operations_shipping/invoicing>`
+
+Delivery information
+--------------------
+
+After confirming the sales order, click the :guilabel:`Delivery` smart button to view the linked
+delivery order.
+
+In the :guilabel:`Additional info` tab, the third-party shipping carrier is listed in the
+:guilabel:`Carrier` field. When the delivery method set to :ref:`production mode
+<inventory/shipping_receiving/configure-delivery-method>`, a :guilabel:`Tracking Reference` is
+provided.
+
+.. seealso::
+   :doc:`Generate shipping labels <../advanced_operations_shipping/labels>`
+
+.. image:: third_party_shipper/delivery-info.png
+   :align: center
+   :alt: Show the delivery order's "Additional info" tab.
