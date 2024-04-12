@@ -5,8 +5,11 @@ Ingenico
 Connecting a payment terminal allows you to offer a fluid payment flow to your customers and ease
 the work of your cashiers.
 
-Please note that Ingenico is currently only available for customers in the
-Benelux.
+.. note::
+   - Ingenico is currently only available for customers in the Benelux.
+   - Odoo only works with the Ingenico payment terminals which support the TLV communication protocol through TCP/IP.
+   - Currently, this includes all of the Ingenico Lane/Desk/Move terminals in Benelux.
+   - You can contact your payment provider to make sure your terminal is compatible.
 
 Configuration
 =============
