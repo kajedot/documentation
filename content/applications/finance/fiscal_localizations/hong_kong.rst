@@ -11,7 +11,7 @@ First, install the 🇭🇰 Hong Kong fiscal localization module to get the late
    :alt: Hong Kong localization modules
 
 .. note::
-   To use the Payroll features, please install the module under the :ref:`HK Payroll <hong_kong/payroll>`.
+   To use the Payroll features, install the module under the :ref:`HK Payroll <hong_kong/payroll>`.
 
 Add FPS QR codes to invoices
 ============================
@@ -87,14 +87,14 @@ Under the **Work Information** tab:
 
 Under the **Private Information** tab:
 
-- :guilabel:`Surname, Given Name, Name in Chinese`
-- :guilabel:`Identification No`
-- :guilabel:`Gender`
-- :guilabel:`Private Address`
+- :guilabel:`Surname, Given Name, Name in Chinese`: Name of Employee
+- :guilabel:`Identification No`: HKID of Employee
+- :guilabel:`Gender`: Gender of Employee
+- :guilabel:`Private Address`: Address of Employee
 - :guilabel:`Bank Account Number`: Employee's bank account number
 - :guilabel:`Current Rental`: Employee's rental records (if rental allowance is applicable)
 - :guilabel:`Autopay Type`: BBAN, SVID, EMAL, etc
-- :guilabel:`Autopay Reference`
+- :guilabel:`Autopay Reference`: Autopay Reference Number
 
 .. note::
    For the :guilabel:`Bank Account Number`, set the :guilabel:`Send Money` field to :guilabel:`Trusted`.
@@ -201,11 +201,11 @@ of Notice, Long Service Payment, Severance Payment).
 #. Select an :guilabel:`Employee`; their :guilabel:`Contract` are filled out automatically
 #. Add a pay :guilabel:`Period`
 #. Select a salary :guilabel:`Structure` (e.g. Employees Monthly Pay)
-#. The **Worked Days** tab will automatically compute the worked days/hours and time-off leaves
+#. The **Worked Days** tab automatically compute the worked days/hours and time-off leaves
    that are applicable.
 #. Additional payslip items can be added at this time (e.g. Commissions, Deductions) under the
    **Other Inputs** section.
-#. Click on :guilabel:`Compute Sheet` button to generate the payslip lines. This button will update
+#. Click on :guilabel:`Compute Sheet` button to generate the payslip lines. This button updates
    the :guilabel:`Salary Computation` tab.
 
 .. image:: hong_kong/hk-individual-payslip.png
@@ -215,7 +215,7 @@ of Notice, Long Service Payment, Severance Payment).
    If the work entry for an employee was amended, click the :guilabel:` ⚙ (gear)` icon, then click 
    :guilabel:`Recompute Whole Sheet` to refresh the payslip's **Worked Day & Inputs** section.
 
-The :guilabel:`Salary Computation` tab will show the detailed breakdown of the computation based on
+The :guilabel:`Salary Computation` tab shows the detailed breakdown of the computation based on
 the salary rules configured for each structure type.
 
 .. image:: hong_kong/hk-salary-computation.png
@@ -234,8 +234,8 @@ the salary rules configured for each structure type.
 
 .. note::
    There are no MPF contributions for the first month. Both **employee** and **employer**
-   contribution starts on second month and the **employer** contribution for the second month will
-   include the back-pay of the first month.
+   contribution starts on second month and the **employer** contribution for the second month is
+   include in the first month as back-pay.
 
 Under the :guilabel:`Other Inputs` tab at the bottom of payslip, there are additional manual input
 types that are specific to HK Payroll:
@@ -245,12 +245,12 @@ types that are specific to HK Payroll:
 - :guilabel:`Global Deduction`: A lump-sum deduction from the entire payslip.
 - :guilabel:`Global Reimbursement`: A lump-sum reimbursement to the entire payslip.
 - :guilabel:`Referral Fee`: The additional bonus offered for any form of business-related referral.
-- :guilabel:`Moving Daily Wage`: To override the :abbr:`ADW (Average Daily Wage)` for the period.
-- :guilabel:`Skip Rent Allowance`: To override the rent allowance (using negative amount).
-- :guilabel:`Custom Average Monthly Salary`: Used for computing end-of-year payments.
+- :guilabel:`Moving Daily Wage`: To override the :abbr:`ADW (Average Daily Wage)` value used for leaves computation.
+- :guilabel:`Skip Rent Allowance`: If set, the rental allowance is excluded from the current payslip.
+- :guilabel:`Custom Average Monthly Salary`: To override the average monthly salary used for end-of-year payment.
 
-Once you are satisfied with the Payslips, click :guilabel:`Create Draft entry` to generate a draft
-journal entry found in the :guilabel:`Other Info` tab of the payslip.
+Once the payslips are ready, click :guilabel:`Create Draft entry` to generate a draft journal entry 
+found in the :guilabel:`Other Info` tab of the payslip.
 
 Paying employees
 ----------------
@@ -278,7 +278,7 @@ Setup the contract as follows for employees who are based on hourly-wage contrac
 
 #. Go to *Attendance* app.
 #. The employee can check-in/out via the kiosk mode.
-#. In the *Payroll* app, you can review the attendance work entries generated from
+#. In the *Payroll* app, review the attendance work entries generated from
    :menuselection:`Payroll app --> Work Entries`.
 #. Next, generate the :ref:`payslips <hong_kong/running_payslips>` and process the payment.
 
@@ -316,8 +316,8 @@ The ADW computation is as follows:
 
 .. note::
    For 418 compliance, there is no automated allocation of the **Statutory Holiday**
-   entitlement to the employees. As soon as your employees meet the 418 requirements,
-   manually allocate the leaves via the *Time-Off* app.
+   entitlement to the employees. As soon as 418 requirements are met, manually allocate the leaves 
+   via the *Time-Off* app.
 
 .. note::
 Before generating payslips, ensure the statuses are :guilabel:`Done` to validate the outcome:
@@ -365,12 +365,12 @@ Here is an example demonstrating the 713 logic:
 
 - :guilabel:`Jan`: Generate a payslip with a monthly wage of $20200. The **ADW** is always computed on a cumulative basis of the trailing 12-months.
 - :guilabel:`Feb`: Generate a similar payslip but add an **Other Input Type** for the Commission.
-- :guilabel:`Mar`: We will apply for **one** full-paid annual leave in March. The salary compensation for the leave taken is based on ADW thus far.
+- :guilabel:`Mar`: Apply for **one** full-paid annual leave in March. The salary compensation for the leave taken is based on ADW thus far.
 
 .. image:: hong_kong/hk-march-713.png
    :alt: Hong Kong March 713
 
-- :guilabel:`Apr`: We will apply for a 1-day non-full pay leave in April. Since this is a non-full pay leave, the ADW is computed accordingly.
+- :guilabel:`Apr`: Apply for a 1-day non-full pay leave in April. Since this is a non-full pay leave, the ADW is computed accordingly.
 
 .. image:: hong_kong/hk-apr-713.png
    :alt: Hong Kong April 713
@@ -440,11 +440,10 @@ Go to :menuselection:`Payroll app --> Reporting --> Manulife MPF Sheet`
 HSBC Autopay Report
 ~~~~~~~~~~~~~~~~~~~
 
-If :guilabel:`HSBC Autopay` is selected as the batch payment method, you can click on **Create HSBC Autopay Report**
+If :guilabel:`HSBC Autopay` is selected as the batch payment method, click on **Create HSBC Autopay Report**
 and fill in the mandatory fields:
 
 .. image:: hong_kong/hk-generate-autopay.png
    :alt: Hong Kong HSBC Autopay Wizard
 
-This creates an **.apc** file format which you can be uploaded to the HSCB portal for processing.
-
+This creates an **.apc** file format which can be uploaded to the HSCB portal for processing.
