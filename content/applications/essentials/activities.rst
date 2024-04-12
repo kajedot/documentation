@@ -3,90 +3,122 @@ Activities
 ==========
 
 *Activities* are follow-up tasks tied to a record in an Odoo database. Activities can be scheduled
-on any page of the database that contains a chatter thread, kanban view, list view, or activities
+on any page of the database that contains a chatter thread, Kanban view, list view, or activities
 view of an application.
 
 Schedule activities
 ===================
 
-One way that activities are created is by clicking the :guilabel:`Schedule Activity` button, located
-at the top of the *chatter* on any record. On the pop-up window that appears, select an
-:guilabel:`Activity Type` from the drop-down menu.
+Activities can be scheduled from many different places, from the :ref:`chatter <activities/chatter>`
+of a record, or from one of multiple views of an application: the :ref:`Kanban view
+<activities/kanban>`, :ref:`list view <activities/list>`, or :ref:`activities view
+<activities/activity>`.
 
-.. tip::
-   Individual applications have a list of *Activity Types* dedicated to that application. For
-   example, to view and edit the activities available for the *CRM* application, go to
-   :menuselection:`CRM app --> Configuration --> Activity Types`.
+.. _activities/chatter:
 
-Enter a title for the activity in the :guilabel:`Summary` field, located in the :guilabel:`Schedule
-Activity` pop-up window.
+Chatter
+-------
 
-To assign the activity to a different user, select a name from the :guilabel:`Assigned to` drop-down
-menu. Otherwise, the user creating the activity is automatically assigned.
+One way that activities are created is from the *chatter* on any record. Click the
+:guilabel:`Activities` button, located at the top of the chatter, and a :guilabel:`Schedule
+Activity` pop-up window appears.
 
-Lastly, feel free to add any additional information in the optional :guilabel:`Log a note...` field.
+Enter the following information on the form:
 
-.. note::
-   The :guilabel:`Due Date` field on the :guilabel:`Schedule Activity` pop-up window auto-populates
-   based on the configuration settings for the selected :guilabel:`Activity Type`. However, this
-   date can be changed by selecting a day on the calendar in the :guilabel:`Due Date` field.
+- :guilabel:`Activity Type`: select the type of activity from the drop-down menu. The default
+  options are: :guilabel:`Email`, :guilabel:`Call`, :guilabel:`Meeting`, or :guilabel:`To-Do`.
+  Depending on what other applications are installed, additional options may be available.
 
-Lastly, click one of the following buttons:
+  .. note::
+     Individual applications have a list of *Activity Types* dedicated to that application. For
+     example, if the *Sales* application is installed, an :guilabel:`Order Upsell` activity is
+     available. If the *Sign* application is installed, a :guilabel:`Request Signature` activity is
+     available.
+
+- :guilabel:`Summary`: enter a short title for the activity, such as `Discuss Proposal`.
+- :guilabel:`Due Date`: using the calendar popover, select the date the activity should be completed
+  by.
+- :guilabel:`Assigned to`: by default, the current user populates this field. To assign a different
+  user to the activity, select them from the drop-down menu.
+- :guilabel:`Notes`: add any additional information for the activity in this field.
+
+.. image:: activities/schedule-pop-up.png
+   :align: center
+   :alt: View of CRM leads and the option to schedule an activity.
+
+When the :guilabel:`Schedule Activity` pop-up window is completed, click one of the following
+buttons:
 
 - :guilabel:`Schedule`: adds the activity to the chatter under :guilabel:`Planned activities`.
 - :guilabel:`Mark as Done`: adds the details of the activity to the chatter under :guilabel:`Today`.
   The activity is not scheduled, it is automatically marked as completed.
 - :guilabel:`Done \& Schedule Next`: adds the task under :guilabel:`Today` marked as done, and
-  opens a new activity window.
-- :guilabel:`Discard`: discards any changes made on the pop-up window.
+  opens a new :guilabel:`Schedule Activity` pop-up window.
+- :guilabel:`Cancel`: discards any changes made on the :guilabel:`Schedule Activity` pop-up window.
 
-.. image:: activities/schedule-pop-up.png
-   :alt: View of CRM leads and the option to schedule an activity.
+.. tip::
+   If the :guilabel:`Activity Type` is set to either :guilabel:`Call` or :guilabel:`Meeting`, an
+   :guilabel:`Open Calendar` button also appears.
 
-.. note::
-   Depending on the activity type, the :guilabel:`Schedule` button may be replaced by a
-   :guilabel:`Save` button, or an :guilabel:`Open Calendar` button.
+   Click the :guilabel:`Open Calendar` button to open the user's calendar. Then, select the date and
+   time for the activity by clicking on the appropriate section of the calendar. A :guilabel:`New
+   Event` pop-up window appears, with the summary from the Schedule Activity pop-up window
+   populating the :guilabel:`Title` field.
 
-Scheduled activities are added to the chatter for the record under :guilabel:`Planned activities`.
+Once scheduled, the activity is added to the chatter under the :guilabel:`Planned Activities`
+section.
 
 .. image:: activities/chatter-activities.png
+   :align: center
    :alt: View of CRM leads and the option to schedule an activity.
 
-Activities can also be scheduled from the kanban, list, or activities view of an application.
+.. _activities/kanban:
 
-.. tabs::
+Kanban view
+-----------
 
-   .. tab:: Kanban view
+When in an application, click the :guilabel:`(Kanban)` icon in the top-right corner to have the data
+displayed in a Kanban format. Click on the :guilabel:`activity` icon, located at the bottom of the
+individual record. The icon may appear as
 
-      Select a record on which to schedule an activity. Click on the :guilabel:`🕘 (clock)` icon,
-      then :guilabel:`Schedule An Activity`, and proceed to fill out the pop-up form.
+:guilabel:`Schedule An Activity`, and proceed to fill out the pop-up form.
 
-      .. image:: activities/schedule-kanban-activity.png
-               :alt: Kanban view of the CRM pipeline and the option to schedule an activity.
+.. image:: activities/schedule-kanban-activity.png
+   :align: center
+   :alt: Kanban view of the CRM pipeline and the option to schedule an activity.
 
-   .. tab:: List view
+.. _activities/list:
+
+List view
+---------
 
       Select a record on which to schedule an activity. Click on the :guilabel:`🕘 (clock)` icon,
       then :guilabel:`Schedule An Activity`. If the record already has an activity scheduled, the
       clock icon may be replaced by a :guilabel:`📞 (phone)` or an :guilabel:`✉️ (envelope)` icon.
 
       .. image:: activities/schedule-list-activity.png
-               :alt: List view of the CRM pipeline and the option to schedule an activity.
+         :align: center
+         :alt: List view of the CRM pipeline and the option to schedule an activity.
 
-   .. tab:: Activity view
+.. _activities/activity:
+
+Activity view
+-------------
 
       To open the activity view for an application, select the :guilabel:`🕘 (clock)` icon from the
       menu bar anywhere in the database. Select any application from the drop-down menu, and click
       the :guilabel:`🕘 (clock)` icon for the desired app.
 
       .. image:: activities/schedule-activity-view-menu.png
-               :alt: Activity menu drop down with focus on where to open activity view for CRM.
+         :align: center
+         :alt: Activity menu drop down with focus on where to open activity view for CRM.
 
       Select a record on which to schedule an activity. Move across the row to find the desired
       activity type, then click the :guilabel:`＋ (plus sign)`.
 
       .. image:: activities/schedule-activity-view.png
-               :alt: Activity view of the CRM pipeline and the option to schedule an activity.
+         :align: center
+         :alt: Activity view of the CRM pipeline and the option to schedule an activity.
 
 .. note::
    Activity colors, and their relation to an activity's due date, is consistent throughout Odoo,
@@ -117,6 +149,7 @@ The possibility to :guilabel:`Add new note` and :guilabel:`Request a Document` a
 of this drop-down menu, when the :guilabel:`🕘 (clock)` icon on the header menu is clicked.
 
 .. image:: activities/activities-menu.png
+   :align: center
    :alt: View of CRM leads page emphasizing the activities menu.
 
 Configure activity types
@@ -137,6 +170,7 @@ At the top of a blank activity type form, start by choosing a :guilabel:`Name` f
 type.
 
 .. image:: activities/new-activity-type.png
+   :align: center
    :alt: New activity type form.
 
 Activity settings
@@ -227,6 +261,7 @@ This :guilabel:`Schedule` field information can be altered before the activity i
 When all configurations are complete, click :guilabel:`Save`.
 
 .. image:: activities/triggered-activities.png
+   :align: center
    :alt: Schedule new activity popup with emphasis on Done and launch next button.
 
 .. note::
