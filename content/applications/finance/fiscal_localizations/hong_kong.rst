@@ -30,7 +30,7 @@ FPS bank account configuration
 ------------------------------
 
 Go to :menuselection:`Contacts app --> Configuration --> Bank Accounts: Bank Accounts` and select the bank account for
-FPS activation. Set the :guilabel:`Proxy Type` and fill in the :guilabel:`Proxy Value` field depending 
+FPS activation. Set the :guilabel:`Proxy Type` and fill in the :guilabel:`Proxy Value` field depending
 on the type chosen.
 
 .. important::
@@ -97,7 +97,7 @@ Under the :guilabel:`Private Information` tab:
 - :guilabel:`Autopay Reference`: Autopay Reference Number
 
 .. important::
-   For the :guilabel:`Bank Account Number`, set the :guilabel:`Send Money` field to :guilabel:`Trusted`. If 
+   For the :guilabel:`Bank Account Number`, set the :guilabel:`Send Money` field to :guilabel:`Trusted`. If
    this is not set to :guilabel:`Trusted`, money **cannot** be tranferred to the employee's bank acocunt.
 
 .. note::
@@ -122,8 +122,8 @@ The following are critical for setting up a contract:
 
 - :guilabel:`Working Schedule`: Set as HK Standard 40 hours/week (from employee record)
 - :guilabel:`Salary Structue Type`: Set as CAP57: Hong Kong Employee.
-- :guilabel:`Work Entry Source`: Select either :guilabel:`Working Schedule`, :guilabel:`Attendances` or :guilabel:`Planning`. 
-  This field determines how the work entries are accounted for in the payslip. 
+- :guilabel:`Work Entry Source`: Select either :guilabel:`Working Schedule`, :guilabel:`Attendances` or :guilabel:`Planning`.
+  This field determines how the work entries are accounted for in the payslip.
 
    - :guilabel:`Working Schedule`: The work entries are generated automatically based on the employee's working schedule.
    - :guilabel:`Attendances`: The work entries are generated based on the check-in/-out period logged in the *Attendances* app.
@@ -138,7 +138,7 @@ Under the :guilabel:`Salary Information` tab:
   .. important::
      Timesheets do **not** impact work entries in Odoo.
 
-Once all information has been setup, set the contract status to :guilabel:`Running` by clicking the :guilabel:`Running` button 
+Once all information has been setup, set the contract status to :guilabel:`Running` by clicking the :guilabel:`Running` button
 in the top-right of the page.
 
 .. image:: hong_kong/hk-contract.png
@@ -173,14 +173,14 @@ Odoo can create pay runs in **two** ways: via **batch** or **individual** paysli
 Batch payslips
 ~~~~~~~~~~~~~~
 
-Go to :menuselection:`Payroll app --> Payslips --> Batches`
-This method of payslip generation is used for recurring payments, since multiple employee payslips 
+Go to :menuselection:`Payroll app --> Payslips --> Batches`.
+This method of payslip generation is used for recurring payments, since multiple employee payslips
 can be managed at once.
 
 #. Click on :guilabel:`New`.
-#. Enter a :guilabel:`Batch Name` (e.g, `2024 – Jan`) and :guilable:`Period` (e.g. 01/01/2024 - 01/31/2024)
+#. Enter a :guilabel:`Batch Name` (e.g, `2024 – Jan`) and :guilabel:`Period` (e.g. 01/01/2024 - 01/31/2024).
 #. Click on :guilabel:`Generate Payslips`.
-#. Choose which :guilabel:`Salary Structure` to use for this batch. The department filter allows the batch to 
+#. Choose which :guilabel:`Salary Structure` to use for this batch. The department filter allows the batch to
    apply to only a specific group of employees.
 #. Click on :guilabel:`Generate`.
 #. A :guilabel:`Payslips` smart button is created automatically.
@@ -188,7 +188,7 @@ can be managed at once.
 .. image:: hong_kong/hk-batch-payslips.png
    :alt: Hong Kong Batch Payslips
 
-Next, click :guilabel:`Create Draft Entry` to generate a draft journal entry found in the :guilabel:`Other Info` 
+Next, click :guilabel:`Create Draft Entry` to generate a draft journal entry found in the :guilabel:`Other Info`
 tab of each payslips. A :guilabel:`Confirmation` pop-up window appears asking `Are you sure you want to proceed?`.
 Click :guilabel:`Ok` to create the journal entries.
 
@@ -203,7 +203,7 @@ of Notice, Long Service Payment, Severance Payment).
 #. Select an :guilabel:`Employee`; their :guilabel:`Contract` are filled out automatically.
 #. Add a pay :guilabel:`Period`.
 #. Select a salary :guilabel:`Structure` (e.g. Employees Monthly Pay)
-#. The :guilabel:`Worked Days`tab automatically compute the worked days/hours and time off leaves
+#. The :guilabel:`Worked Days` tab automatically compute the worked days/hours and time off leaves
    that are applicable.
 #. Additional payslip items can be added at this time (e.g. Commissions, Deductions) under the
    :guilabel:`Other Inputs` section.
@@ -214,7 +214,7 @@ of Notice, Long Service Payment, Severance Payment).
    :alt: Hong Kong Individual Payslip
 
 .. note::
-   If the work entry for an employee was amended, click the :guilabel:` ⚙ (gear)` icon, then click 
+   If the work entry for an employee was amended, click the :guilabel:` ⚙ (gear)` icon, then click
    :guilabel:`Recompute Whole Sheet` to refresh the payslip's :guilabel:`Worked Days & Inputs` section.
 
 The :guilabel:`Salary Computation` tab shows the detailed breakdown of the computation based on
@@ -225,9 +225,9 @@ the salary rules configured for each structure type.
 
 #. :guilabel:`Rent Allowance`: Amount derived from the employee's active rental record.
 #. :guilabel:`Basic Salary`: Amount of base salary provided (after rent allowance deduction)
-#. :guilabel:`713 Gross`: Net payable amount considering Commission, Internet Allowance, Reimbursements, 
+#. :guilabel:`713 Gross`: Net payable amount considering Commission, Internet Allowance, Reimbursements,
    Back-pay, Deduction, etc.
-#. :guilabel:`MPF Gross`: Net payable amount from 713 gross after consideration of additional allowances, 
+#. :guilabel:`MPF Gross`: Net payable amount from 713 gross after consideration of additional allowances,
    deductions and end-of-year payment.
 #. :guilabel:`Employee Mandatory Contribution`: Employee MPF Contribution
 #. :guilabel:`Employer Mandatory Contribution`: Employer MPF Contribution
@@ -236,7 +236,7 @@ the salary rules configured for each structure type.
 
 .. important::
    There are no MPF contributions for the first month. Both **employee** and **employer**
-   contribution starts on **second** month. 
+   contribution starts on **second** month.
 
 Under the :guilabel:`Other Inputs` tab at the bottom of payslip, there are additional manual input
 types that are specific to *HK Payroll*:
@@ -250,7 +250,7 @@ types that are specific to *HK Payroll*:
 - :guilabel:`Skip Rent Allowance`: If set, the rental allowance is excluded from the current payslip.
 - :guilabel:`Custom Average Monthly Salary`: To override the average monthly salary used for end-of-year payment.
 
-Once the payslips are ready, click :guilabel:`Create Draft entry` to generate a draft journal entry 
+Once the payslips are ready, click :guilabel:`Create Draft entry` to generate a draft journal entry
 found in the :guilabel:`Other Info` tab of the payslip.
 
 Paying employees
@@ -264,7 +264,7 @@ The user can choose between **two** different **payment methods**.
   :doc:`paying vendor bills <../accounting/payments>`. Select the desired bank journal and payment
   method, then later reconcile the payment with the corresponding bank statement.
 
-- For batch payments, once all draft journal entries from the batch are confirmed, click :guilabel:`Mark as Paid` 
+- For batch payments, once all draft journal entries from the batch are confirmed, click :guilabel:`Mark as Paid`
   to post the payment journal entry. Then create a :doc:`payment <../accounting/payments>` in the *Accounting*
   app and reconcile accordingly.
 
@@ -317,11 +317,12 @@ The ADW computation is as follows:
 
 .. note::
    For 418 compliance, there is no automated allocation of the **Statutory Holiday**
-   entitlement to the employees. As soon as 418 requirements are met, manually allocate the leaves 
+   entitlement to the employees. As soon as 418 requirements are met, manually allocate the leaves
    via the *Time Off* app.
 
 .. note::
-Before generating payslips, ensure the statuses are :guilabel:`Done` to validate the outcome:
+Before generating payslips, ensure the statuses are :guilabel:`Done`
+to validate the outcome:
 
 .. list-table::
    :header-rows: 1
@@ -421,7 +422,7 @@ Go to :menuselection:`Payroll app --> Reporting --> IR56B/E/F/G`:
 Manulife MPF Sheet
 ~~~~~~~~~~~~~~~~~~
 
-Go to :menuselection:`Payroll app --> Reporting --> Manulife MPF Sheet`
+Go to :menuselection:`Payroll app --> Reporting --> Manulife MPF Sheet`.
 
 #. Click on :guilabel:`New`.
 #. Select the relevant Year, Month and Sequence No.
